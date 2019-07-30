@@ -157,6 +157,9 @@ export class ProsemirrorBinding {
       this.beforeTransactionSelection = getRelativeSelection(this, prosemirrorView.state)
     })
     yXmlFragment.observeDeep(this._observeFunction)
+
+    // might already have content, sync it to dom
+    this._forceRerender();
   }
   _forceRerender () {
     this.mapping = new Map()
